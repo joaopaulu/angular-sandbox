@@ -1,13 +1,15 @@
 <mat-tab-group mat-align-tabs="start" class="tab-group-settings">
+
   <mat-tab label="PRÓXIMAS">
     <div fxLayout="row" fxLayoutAlign="start center" class="fx-layout-setting" >
-      <div class="live-card">
-        <mat-card class="example-card"
-        fxFlex="0 1calc(33.3%) - 11px"
+      <ng-container class="live-card">
+
+        <mat-card class="mat-card-live"
+        fxFlex="0 1 calc(33.3% - 11px)"
         fxFlex.lt-md="0 1 calc(50% - 11px)"
         fxFlex.lt-sm="100%">
-          <mat-card-header>
-          </mat-card-header>
+          <mat-card-title class="mat-card-title-live">
+          </mat-card-title>
           <mat-card-content>
             <p>
               The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
@@ -17,28 +19,31 @@
           </mat-card-content>
         </mat-card>
 
-      </div>
+      </ng-container>
     </div>
   </mat-tab>
   <mat-tab label="REALIZADAS">
-    <div fxLayout="row" fxLayoutAlign="start center" class="fx-layout-setting" >
+    <div fxLayout="row wrap" fxLayoutAlign="start center" class="fx-layout-setting">
       <ng-container *ngFor="let live of livesPrevious" class="live-card">
+
         <mat-card class="mat-card-live"
-        fxFlex="0 1calc(33.3%) - 11px"
+        fxFlex="0 1 calc(33.3% - 11px)"
         fxFlex.lt-md="0 1 calc(50% - 11px)"
         fxFlex.lt-sm="100%">
+
           <mat-card-title class="mat-card-title-live">
             <div class="row">
               <p>
-                <span fxFlex="70" fxLayoutAlign="start center">{{live.liveName}}</span>
-                <span fxFlex=""></span>
-                <span fxFlex="25" fxLayoutAlign="end center">{{live.liveDate}}</span>
+                <span class="card-live-name" fxFlex="70" fxLayoutAlign="start center">{{live.liveName}}</span>
+                <span fxFlex></span>
+                <span class="card-live-date" fxFlex="25" fxLayoutAlign="end center">{{live.liveDate}}</span>
                </p>
                <p>
-                 Canal: <span>{{live.channelName}}</span>
+                  <span class="card-live-channel"><strong>Canal: </strong>{{live.channelName}}</span>
                </p>
             </div>
           </mat-card-title>
+
           <mat-card-content>
 
           </mat-card-content>
