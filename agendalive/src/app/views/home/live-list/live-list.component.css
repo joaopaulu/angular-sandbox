@@ -28,15 +28,15 @@
   min-height: 70px;
 }
 
-.mat-chip-date{
-  background-color: #90CAF9 !important;
-  color: black !important;
-}
-
 .card-live-name{
   font-size: 0.9rem;
 }
 
 .card-live-date, .card-live-channel{
   font-size: 0.7rem;
+}
+
+.mat-chip-date{
+  background-color: #90CAF9 !important;
+  color: black !important;
 }

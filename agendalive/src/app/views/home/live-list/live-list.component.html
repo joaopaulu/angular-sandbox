@@ -2,53 +2,61 @@
 
   <mat-tab label="PRÓXIMAS">
     <div fxLayout="row" fxLayoutAlign="start center" class="fx-layout-setting" >
-      <ng-container class="live-card">
-
+      <ng-container *ngFor="let live of livesNext" class="live-card">
         <mat-card class="mat-card-live"
         fxFlex="0 1 calc(33.3% - 11px)"
         fxFlex.lt-md="0 1 calc(50% - 11px)"
         fxFlex.lt-sm="100%">
-          <mat-card-title class="mat-card-title-live">
-          </mat-card-title>
-          <mat-card-content>
-            <p>
-              The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
-              A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
-              bred for hunting.
-            </p>
-          </mat-card-content>
-        </mat-card>
-
-      </ng-container>
-    </div>
-  </mat-tab>
-  <mat-tab label="REALIZADAS">
-    <div fxLayout="row wrap" fxLayoutAlign="start center" class="fx-layout-setting">
-      <ng-container *ngFor="let live of livesPrevious" class="live-card">
-
-        <mat-card class="mat-card-live"
-        fxFlex="0 1 calc(33.3% - 11px)"
-        fxFlex.lt-md="0 1 calc(50% - 11px)"
-        fxFlex.lt-sm="100%">
-
           <mat-card-title class="mat-card-title-live">
             <div class="row">
               <p>
                 <span class="card-live-name" fxFlex="70" fxLayoutAlign="start center">{{live.liveName}}</span>
                 <span fxFlex></span>
-                <span class="card-live-date" fxFlex="25" fxLayoutAlign="end center">{{live.liveDate}}</span>
+                <mat-chip class="mat-chip-date" fxFlex="25" fxLayoutAlign="center center">
+                  <span class="card-live-date">{{live.liveDate | localDateTime}}</span>
+                </mat-chip>
                </p>
                <p>
                   <span class="card-live-channel"><strong>Canal: </strong>{{live.channelName}}</span>
                </p>
             </div>
           </mat-card-title>
-
-          <mat-card-content>
-
+          <mat-card-content fxLayoutAlign="center center">
+            <div>
+              <iframe width="560" height="315" [src]="live.urlSafe" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
           </mat-card-content>
         </mat-card>
-
+      </ng-container>
+    </div>
+  </mat-tab>
+  <mat-tab label="REALIZADAS">
+    <div fxLayout="row wrap" fxLayoutAlign="start center" class="fx-layout-setting">
+      <ng-container *ngFor="let live of livesPrevious" class="live-card">
+        <mat-card class="mat-card-live"
+        fxFlex="0 1 calc(33.3% - 11px)"
+        fxFlex.lt-md="0 1 calc(50% - 11px)"
+        fxFlex.lt-sm="100%">
+          <mat-card-title class="mat-card-title-live">
+            <div class="row">
+              <p>
+                <span class="card-live-name" fxFlex="70" fxLayoutAlign="start center">{{live.liveName}}</span>
+                <span fxFlex></span>
+                <mat-chip class="mat-chip-date" fxFlex="25" fxLayoutAlign="center center">
+                  <span class="card-live-date">{{live.liveDate | localDateTime}}</span>
+                </mat-chip>
+               </p>
+               <p>
+                  <span class="card-live-channel"><strong>Canal: </strong>{{live.channelName}}</span>
+               </p>
+            </div>
+          </mat-card-title>
+          <mat-card-content fxLayoutAlign="center center">
+            <div>
+              <iframe width="560" height="315" [src]="live.urlSafe" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+          </mat-card-content>
+        </mat-card>
       </ng-container>
     </div>
   </mat-tab>
