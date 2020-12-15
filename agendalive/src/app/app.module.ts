@@ -15,10 +15,12 @@ import { HttpClientModule } from '@angular/common/http';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { LocalDateTimePipe } from './shared/pipe/local-date-time.pipe';
 import { MatChipsModule } from '@angular/material/chips';
+import { MatDialogModule } from '@angular/material/dialog';
+import { LiveFormDialogComponent } from './views/home/live-form-dialog/live-form-dialog.component';
 
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, LiveListComponent, LocalDateTimePipe],
+  declarations: [AppComponent, HomeComponent, LiveListComponent, LocalDateTimePipe, LiveFormDialogComponent],
   imports: [
     HttpClientModule,
     BrowserModule,
@@ -30,7 +32,8 @@ import { MatChipsModule } from '@angular/material/chips';
     MatTabsModule,
     MatCardModule,
     FlexLayoutModule,
-    MatChipsModule
+    MatChipsModule,
+    MatDialogModule
   ],
   providers: [
     LocalDateTimePipe
