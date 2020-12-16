@@ -29,16 +29,15 @@ export class LiveFormDialogComponent implements OnInit {
   }
 
   createLive(): void {
-    let hora = this.liveForm.value.liveTime;
+    let liveData = this.liveForm.value;
     let newDate: moment.Moment = moment.utc(this.liveForm.value.liveDate).local();
-    this.liveForm.value.liveDate = newDate.format("YYYY-MM-DD") + "T" + hora;
-    let liveData = ([
-      this.liveForm.value])
+    this.liveForm.value.liveDate = newDate.format("YYYY-MM-DD") + "T" + liveData.liveTime;
+    delete liveData.liveTime;
     console.log(liveData);
-    //this.rest.postLives(this.liveForm.value).subscribe(result => {});
-    //this.dialogRef.close(true);
-    //this.liveForm.reset();
-    //window.location.reload();
+    this.rest.postLives(liveData).subscribe(result => {});
+    this.dialogRef.close(true);
+    this.liveForm.reset();
+    window.location.reload();
   }
 
   cancel(): void {
