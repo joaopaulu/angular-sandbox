@@ -18,6 +18,7 @@ import { ProductComponent } from './views/product/product.component';
 import { RedDirective } from './directives/red.directive';
 import { ProductCreateComponent } from './components/product/product-create/product-create.component';
 import { MatButtonModule } from '@angular/material/button';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,7 @@ import { MatButtonModule } from '@angular/material/button';
     HomeComponent,
     ProductComponent,
     RedDirective,
-    ProductCreateComponent    
+    ProductCreateComponent      
   ],
   imports: [
     BrowserModule,
@@ -38,7 +39,8 @@ import { MatButtonModule } from '@angular/material/button';
     MatSidenavModule,
     MatListModule,
     MatCardModule,
-    MatButtonModule
+    MatButtonModule,
+    MatSnackBarModule 
   ],
   providers: [],
   bootstrap: [AppComponent]
