@@ -10,7 +10,7 @@ import { ProductService } from '../product.service';
 export class ProductReadComponent implements OnInit {
 
   products: Product[]
-  displayedColumns = ['idProduto', 'nome', 'quantidade', 'valor']
+  displayedColumns = ['nome', 'quantidade', 'valor', 'action']
 
   constructor(private productService: ProductService) { }
 
