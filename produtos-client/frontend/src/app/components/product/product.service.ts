@@ -2,7 +2,8 @@ import { Product } from './product.model';
 import { Injectable } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable } from "rxjs";
+
 
 @Injectable({
   providedIn: 'root'
@@ -28,5 +29,15 @@ export class ProductService {
 
   read(): Observable<Product[]>{
     return this.http.get<Product[]>(this.baseURL);
+  }
+
+  readById(id: number): Observable<Product>{
+    const url = `${this.baseURL}/${id}`;
+    return this.http.get<Product>(url);     
+  }
+
+  update(product: Product): Observable<Product>{
+    const url = `${this.baseURL}/${product.id}`;
+    return this.http.put<Product>(url, product);
   }
 }

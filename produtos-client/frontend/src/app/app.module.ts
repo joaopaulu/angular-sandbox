@@ -30,6 +30,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 
 import localePt from '@angular/common/locales/pt';
 import { registerLocaleData } from '@angular/common';
+import { ProductUpdateComponent } from './components/product/product-update/product-update.component';
 
 registerLocaleData(localePt);
 
@@ -43,7 +44,8 @@ registerLocaleData(localePt);
     ProductComponent,
     RedDirective,
     ProductCreateComponent,
-    ProductReadComponent
+    ProductReadComponent,
+    ProductUpdateComponent
        
   ],
   imports: [
