@@ -44,7 +44,8 @@ export class ProductService {
     );
   }
 
-  update(product: Product): Observable<Product> {    
+  update(product: Product): Observable<Product> {
+    
     const url = `${this.baseUrl}/${product.id}`;
     return this.http.put<Product>(url, product).pipe(
       map((obj) => obj),
@@ -53,7 +54,6 @@ export class ProductService {
   }
 
   delete(id: number): Observable<Product> {
-    debugger;
     const url = `${this.baseUrl}/${id}`;
     return this.http.delete<Product>(url).pipe(
       map((obj) => obj),
