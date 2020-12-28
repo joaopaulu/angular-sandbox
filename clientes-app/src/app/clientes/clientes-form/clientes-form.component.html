@@ -1,13 +1,15 @@
 <h1 class="mt-4">Clientes</h1>
 <ol class="breadcrumb mb-4">
-    <li class="breadcrumb-item active">Cadastro</li>
+    <li class="breadcrumb-item active">
+      {{ cliente.id ? 'Alterar Cliente' : 'Cadastrar cliente' }}
+    </li>
 </ol>
 <div class="container">
   <form #clienteForm="ngForm" (ngSubmit)="onSubmit()">
     <div class="row">
       <div class="col-md-12">
         <div class="alert alert-success" role="alert" *ngIf="success == true">
-          Cliente salvo com sucesso!
+          Cliente salvo/atualizado com sucesso!
         </div>
         <div class="alert alert-danger" role="alert" *ngFor="let erro of errors">
           {{erro}}
@@ -65,9 +67,17 @@
       </div>
     </div>
     <div class="row">
-      <div class="col-md-2">
-        <button type="submit" class="btn btn-success">
+      <div class="col-md-4">
+        <button type="submit" class="btn btn-success mr-2" *ngIf="!cliente.id">
           <i class="fa fa-save"></i> Salvar
+        </button>
+
+        <button type="submit" class="btn btn-primary mr-2" *ngIf="cliente.id">
+          <i class="fa fa-sync-alt"></i> Atualizar
+        </button>
+
+        <button type="button" class="btn btn-danger" (click)="voltarListagem()">
+          <i class="fa fa-arrow-alt-circle-left"></i> Cancelar
         </button>
       </div>
     </div>
